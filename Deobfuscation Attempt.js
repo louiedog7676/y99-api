@@ -1,3 +1,5 @@
+//this was an attempt at deobfuscating some of Y99's JS Agents
+
 var _0x3d3c = [
   'bwebc',
   'notification',
