@@ -1,0 +1,81 @@
+POST /api.vf.random/api.php/public/fetch HTTP/1.1
+Host: api2.y99.in
+sec-ch-ua: "Not_A Brand";v="99"
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryAjBr6h4yF8CPNxOc // you will need to update this and all other WebKitFormBoundaries 
+Origin: https://y99.in
+Accept-Encoding: gzip, deflate, br, zstd
+
+------WebKitFormBoundaryAjBr6h4yF8CPNxOc
+Content-Disposition: form-data; name="auth" //this is your authorization token, can get it from any network request.
+
+8b49bc7aa0b9aee9c4eaef5916c09078073abd3df7e20ec186a302f688fe971f
+------WebKitFormBoundaryAjBr6h4yF8CPNxOc
+Content-Disposition: form-data; name="room_id" //if you want to use for other rooms
+
+1540231
+------WebKitFormBoundaryAjBr6h4yF8CPNxOc
+Content-Disposition: form-data; name="pageUp" //I believe this changes how much it loads, but increasing makes response time take upwards of seconds.
+
+1
+------WebKitFormBoundaryAjBr6h4yF8CPNxOc
+Content-Disposition: form-data; name="mode"
+
+public //I think  this might not actually do anything so up to you if you want to keep.
+------WebKitFormBoundaryAjBr6h4yF8CPNxOc--
+
+_____________________________________________________________________________________________________________________________
+RESPONSE EXAMPLE
+
+HTTP/1.1 200 OK
+Date: Sun, 12 Apr 2026 19:14:05 GMT
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 5324
+Connection: close
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+access-control-allow-origin: *
+access-control-allow-headers: *
+vary: Accept-Encoding
+cf-cache-status: DYNAMIC
+Server: cloudflare
+CF-RAY: 9eb48d515ec5eb60-ORD
+alt-svc: h3=":443"; ma=86400
+
+{
+    "self_room": "1540231", //room id
+    "public": [{
+        "id": 1809009, //message id
+        "thumb": "69d95247366e42.64535371_kojilqmepghnf_thumb.jpeg", 
+        "hunter": "Spicypossum", //user
+        "target": "", //only for private 
+        "message": "femboybluee yes", //message contents
+        "rank": 1, //I think this shows if it's a deleted message or smth idrk only example I could find where it was 0
+        "color": "",
+        "type": "public",
+        "badges": ["clover"],
+        "date": 1776021242 //if you want the bot to record time (just remember its in the weird computer time)
+    }, 
+    }
+
+_____________________________________________________________________________________________________________________________
+DELETE REQUEST
+
+POST /api.vf.random/api.php/system/rooms/deleteMessage HTTP/1.1
+Host: api2.y99.in
+sec-ch-ua: "Not_A Brand";v="99"
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryAjBr6h4yF8CPNxOc // you will need to update this and all other WebKitFormBoundaries 
+Origin: https://y99.in
+Accept-Encoding: gzip, deflate, br, zstd
+
+------WebKitFormBoundarynbultzUQOxGhcOZM
+Content-Disposition: form-data; name="auth"
+
+8b49bc7aa0b9aee9c4eaef5916c09078073abd3df7e20ec186a302f688fe971f //authorization token
+------WebKitFormBoundarynbultzUQOxGhcOZM
+Content-Disposition: form-data; name="target"
+
+1809132 //message id
+------WebKitFormBoundarynbultzUQOxGhcOZM
+Content-Disposition: form-data; name="silent"
+
+true //whether response will give you an alert or not
+------WebKitFormBoundarynbultzUQOxGhcOZM--
